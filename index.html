@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gellary Images </title>
+    <link rel="stylesheet" href="style.css">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+
+<body>
+    <div class="container">
+        <nav>
+            <div>
+                <h1>Gellary Store Images</h1>
+            </div>
+
+            <div class="cart-shop">
+                <!-- <i class="fa fa-shopping-cart"></i> -->
+                <i class="fa fa-picture-o"></i>
+                <!-- <span class="total-curt"></span> -->
+
+            </div>
+
+        </nav>
+        <div class="cart_itmes ">
+            <form action="">
+                <label for="">Photo name</label>
+                <input type="text" name="" id="photo_name" placeholder="Enter image name.." required>
+                <label for="">Date Created</label>
+                <input type="date" name="" id="date_created" placeholder="Enter date" required>
+                <label for="">Image</label>
+                <input type="file" name="" id="image_item" placeholder="Enter  image" required>
+                <button type="submit" id="btn_submit">Submit Data</button>
+
+            </form>
+        </div>
+
+        <div class="products">
+            <!-- <div class="product_elemet">
+                <img id="image_item" src="./horse.jpeg" alt="">
+                <h4 id="item_name">Horse</h4>
+                <span id="price_item">$500</span>
+                <i class="fa fa-trash"></i>
+
+            </div> -->
+            <!-- image-changing -->
+
+            <img id="image_item" src="./horse.jpeg" style="display: none;">
+        </div>
+    </div>
+    <!--container-->
+    <script src="./script.js"></script>
+</body>
+
+</html>
