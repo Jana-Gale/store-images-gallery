@@ -42,16 +42,18 @@ const add_product = (img_name, Date, photo) => {
     // image_item.style = "display:none"
 
 
-    products_div.innerHTML += `
-            <div class="product_elemet">
-            <img  src=${photo} alt="">
-            <h4 id="item_name">${img_name}</h4>
-            <span id="price_item"> ${Date}</span>
-            <i class="fa fa-trash"></i>
-
-    </div>
-
+    products_div.insertAdjacentHTML("afterbegin",
         `
+    <div class="product_elemet">
+    <img  src=${photo} alt="">
+    <h4 id="item_name">${img_name}</h4>
+    <span id="price_item"> ${Date}</span>
+    <i class="fa fa-trash"></i>
+
+</div>
+
+`
+    )
     getlocalStorage()
 
     input_photo_name.value = "";
@@ -67,6 +69,7 @@ const add_product = (img_name, Date, photo) => {
 
 form.addEventListener("submit", (e) => {
     e.preventDefault()
+
     console.log(image_item.src);
     add_product(input_photo_name.value, input_date_created.value, image_item.src)
 
@@ -74,8 +77,18 @@ form.addEventListener("submit", (e) => {
 
 //event document
 document.addEventListener('click', (Event) => {
+
     if (Event.target.classList.contains('fa-trash')) {
-        Event.target.parentElement.remove()
+        message = confirm('Are sure you want to delete this image?')
+        console.log(message);
+        if (message === true) {
+            Event.target.parentElement.remove()
+        } else {
+            return
+        }
+
+
+
         getlocalStorage()
             // getlocalStorage(Event.target.parentElement.remove())
         console.log('Delet its parentElement');
