@@ -79,18 +79,44 @@ form.addEventListener("submit", (e) => {
 document.addEventListener('click', (Event) => {
 
     if (Event.target.classList.contains('fa-trash')) {
-        message = confirm('Are sure you want to delete this image?')
-        console.log(message);
-        if (message === true) {
-            Event.target.parentElement.remove()
-        } else {
-            return
-        }
+        let store_parent = Event.target
+
+        Swal.fire({
+            title: "Are you sure?",
+            text: "Are you sure you want to delete this photo!",
+            icon: "warning",
+            showCancelButton: true,
+            confirmButtonColor: "#3085d6",
+            cancelButtonColor: "#d33",
+            confirmButtonText: "Yes, delete it!"
+        }).then((result) => {
+            if (result.isConfirmed) {
+                Swal.fire({
+                    title: "Deleted!",
+                    text: "Your photo has been deleted.",
+                    icon: "success"
+
+                });
+                Event.target.parentElement.remove()
+                getlocalStorage()
+            }
+        });
 
 
 
-        getlocalStorage()
-            // getlocalStorage(Event.target.parentElement.remove())
+
+        // message = confirm('Are sure you want to delete this image?')
+        // console.log(message);
+        // if (message === true) {
+        //     Event.target.parentElement.remove()
+        // } else {
+
+        // }
+
+
+
+
+        // getlocalStorage(Event.target.parentElement.remove())
         console.log('Delet its parentElement');
 
     }
